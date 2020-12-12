@@ -1,0 +1,54 @@
+! nord colors
+#define C00             #2E3440
+#define C01             #ECEFF4
+#define C02             #ECEFF4
+#define C03             #ECEFF4
+#define C04             #ECEFF4
+#define C05             #ECEFF4
+#define C06             #5E81AC
+#define C07             #ECEFF4
+
+#define C08             #4C566A
+#define C09             #D8DEE9
+#define C10             #D8DEE9
+#define C11             #D8DEE9
+#define C12             #D8DEE9
+#define C13             #D8DEE9
+#define C14             #81A1C1
+#define C15             #D8DEE9
+
+! colors
+*.color0:               C00
+*.color1:               C01
+*.color2:               C02
+*.color3:               C03
+*.color4:               C04
+*.color5:               C05
+*.color6:               C06
+*.color7:               C07
+
+*.color8:               C08
+*.color9:               C09
+*.color10:              C10
+*.color11:              C11
+*.color12:              C12
+*.color13:              C13
+*.color14:              C14
+*.color15:              C15
+
+XTerm*termName:         xterm-256color
+XTerm*background:       C00
+XTerm*foreground:       C07
+XTerm*internalBorder:   0
+XTerm*cursorBlink:      true
+XTerm*faceName:         "FiraCode Nerd Font Mono"
+XTerm*faceSize:         9
+
+rofi.font:              "FiraCode Nerd Font Mono" 9
+rofi.color-normal:      C00, C15, C00, C06, C00
+rofi.color-window:      C00, C06, C00
+rofi.bw:                2
+rofi.location:          0
+rofi.separator-style:   solid
+rofi.padding:           5
+rofi.hide-scrollbar:    true
