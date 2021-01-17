@@ -1,0 +1,146 @@
+set encoding=utf-8
+set nocompatible
+
+syntax on
+
+set list
+
+set number
+set relativenumber
+set numberwidth=6
+
+set linebreak
+set tabstop=4
+set shiftwidth=4
+set shiftround
+set softtabstop=4
+set autoindent
+set smartindent
+set ruler
+set rulerformat=%l\:%c
+
+set cursorline
+
+function! Tabline()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    let tab = i + 1
+    let winnr = tabpagewinnr(tab)
+    let buflist = tabpagebuflist(tab)
+    let bufnr = buflist[winnr - 1]
+    let bufname = bufname(bufnr)
+    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= ' ' . tab .':'
+    let s .= (bufname != '' ? fnamemodify(bufname, ':t')  : 'no name')
+    if getbufvar(bufnr, "&mod")
+      let s .= ' + '
+    endif
+    let s .= ' '
+  endfor
+  let s .= '%#TabLineFill#'
+  return s
+endfunction
+
+set tabline=%!Tabline()
+set showtabline=2
+set laststatus=2
+set statusline=
+set statusline+=\ %{mode()}
+set statusline+=\ %t
+set statusline+=\ %y
+set statusline+=\ %m
+set statusline+=\ %r
+
+set statusline+=%= "align left
+set statusline+=%v\ 
+set statusline+=%l:%L\ 
+set statusline+=%P\   
+
+set noshowmode
+
+let mapleader = ","
+
+nnoremap			<leader>e			:vsplit $MYVIMRC<cr><c-w>w
+nnoremap			<leader>r			:source $MYVIMRC<cr>
+nnoremap			<space>				viw
+
+vnoremap			"					<esc>a"<esc>bi"<esc>lel		
+vnoremap			'					<esc>a'<esc>bi'<esc>lel		
+
+inoremap			{					{}<Left>
+inoremap			{<cr>				{<Esc>o}<Esc>O<Tab>
+inoremap			{<space>			{
+inoremap			(					()<Left>
+inoremap			(<cr>				(<esc>o)<esc>o<tab>
+inoremap			(<space>			(
+inoremap			[					[]<Left>
+inoremap			[<cr>				[<esc>o]<esc>o<tab>
+inoremap			[<space>			[
+inoremap			'					''<Left>
+inoremap			'<space>			'
+inoremap			"					""<Left>
+inoremap			"<space>			"
+
+hi StatusLine			ctermfg=0			ctermbg=6			cterm=bold
+hi StatusLineNC			ctermfg=7			ctermbg=8			cterm=bold
+hi TabLine				ctermfg=8			ctermbg=6			cterm=bold
+hi TabLineFill			ctermfg=8			ctermbg=6			cterm=NONE
+hi TabLineSel			ctermfg=7			ctermbg=6			cterm=bold
+hi LineNr				ctermfg=8			ctermbg=NONE
+hi EndOfBuffer			ctermfg=0			ctermbg=NONE
+hi VertSplit			ctermfg=0			ctermbg=NONE		cterm=NONE
+hi Cursor				ctermfg=15			ctermbg=8			cterm=NONE
+hi CursorLine								ctermbg=8			cterm=NONE
+hi CursorColumn								ctermbg=8			cterm=NONE
+hi CursorLineNR			ctermfg=6			ctermbg=8
+hi MatchParen			ctermfg=6			ctermbg=NONE		cterm=bold
+hi Visual				ctermfg=0			ctermbg=6
+hi ErrorMsg				ctermfg=1			ctermbg=None
+hi ColorColumn			ctermfg=None		ctermbg=8
+
+hi Ignore				ctermfg=7
+hi WhiteSpace			ctermfg=8
+hi Identifier			ctermfg=7
+hi PreProc				ctermfg=7
+hi Comment				ctermfg=15
+hi Constant				ctermfg=7
+hi String				ctermfg=15
+hi Function				ctermfg=6								cterm=bold
+hi Statement			ctermfg=6								cterm=bold
+hi Type					ctermfg=7
+hi Number				ctermfg=7
+hi Todo					ctermfg=7
+hi Special				ctermfg=7
+hi Todo					ctermfg=7
+hi Label				ctermfg=7
+hi StorageClass			ctermfg=7
+hi Structure			ctermfg=6
+hi TypeDef				ctermfg=7
+
+hi User1				ctermfg=0			ctermbg=6			cterm=bold
+hi User2				ctermfg=0			ctermbg=5			cterm=bold
+
+let g:netrw_liststyle = 1
+let g:netrw_banner    = 0
+
+filetype plugin on
+
+augroup Clojure
+	autocmd BufReadPre,FileReadPre *.clj set ft=clojure
+augroup end
+
+augroup Elixir
+	autocmd BufReadPre,FileReadPre *.exs set ft=elixir
+	autocmd BufReadPre,FileReadPre *.ex  set ft=elixir
+augroup END
+
+augroup Elm
+	autocmd BufReadPre,FileReadPre *.elm set ft=elm
+augroup END
+
+augroup Go
+	autocmd BufReadPre,FileReadPre *.go set ft=go
+augroup END
+
+augroup Markdown
+	autocmd BufReadPre,FileReadPre *.md set ft=markdown
