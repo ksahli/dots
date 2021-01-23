@@ -12,8 +12,6 @@ hsetroot -solid "${BG}"
 
 picom &
 wallpaper &
-slstatus &
-dwm
-#sxhkd &
-#bspwm
+sxhkd &
+bspwm
 
