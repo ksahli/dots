@@ -1,7 +1,8 @@
-super + shift + q
+# bspc
+super + Escape
 	bspc quit
 
-super + q
+super + Delete
 	bspc node --close
 
 super + {_,shift +}f
@@ -25,5 +26,46 @@ super + shift + m
 super + shift + t
 	bspc desktop --layout tiled
 
+# Launcher
+super + shift + d
+	rofi -show drun -terminal xterm
+
+super + shift + s
+	rofi -show ssh -terminal xterm
+
+super + shift + w
+	rofi -show window
+
+# XF86 Keys
+XF86AudioMute
+  amixer -c 0 sset Master toggle
+
+XF86AudioLowerVolume
+  amixer -c 0 sset Master 1%-
+
+XF86AudioRaiseVolume
+  amixer -c 0 sset Master 1%+
+
+XF86AudioMicMute
+  amixer -c 0 sset Mic toggle
+
+XF86MonBrightnessUp
+  xbacklight -inc 1%
+
+XF86MonBrightnessDown
+  xbacklight -dec 1%
+
+# XF86Display => F7
+# XF86WLAN => F8
+# XF86Tools => F9
+# XF86Search => F10
+# XF86LaunchA => F11
+# XF86Explorer => F1
+
+# Applications
+super + w
+	tabbed -c surf -e
+
 super + t
-	xterm 
+	st
+
