@@ -1,0 +1,161 @@
+[colors]
+background = ${xrdb:color0}
+background-alt = ${xrdb:color8}
+foreground = ${xrdb:color7}
+foreground-alt = ${xrdb:color15}
+primary = ${xrdb:color6}
+primary-alt = ${xrdb:color14}
+secondary = ${xrdb:color5}
+secondary-alt = ${xrdb:color13}
+alert = ${xrdb:color1}
+
+[bar/top]
+monitor = eDP1
+height = 22
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+modules-left = bspwm
+modules-right = battery-one battery-zero datetime
+font-0 = "FiraCode Nerd Font Mono":size=8;1
+width = 100%:-20
+offset-x = 10
+offset-y = 10
+wm-restack = bspwm
+
+[bar/bottom]
+monitor = eDP1
+height = 22
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+modules-left = network-wlan network-lan
+modules-right = backlight volume
+font-0 = "FiraCode Nerd Font Mono":size=8;1
+width = 100%:-20
+offset-x = 10
+offset-y = 10
+wm-restack = bspwm
+bottom = true
+
+[bar/top_external]
+monitor = DP2
+height = 22
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+modules-left = bspwm
+font-0 = "FiraCode Nerd Font Mono":size=9;1
+width = 100%:-20
+offset-x = 10
+offset-y = 10
+wm-restack = bspwm
+
+[module/bspwm]
+type = internal/bspwm
+format=  <label-mode><label-state>
+label-focused = %name%
+label-focused-background = ${colors.primary}
+label-focused-foreground= ${colors.background-alt}
+label-focused-padding = 2
+label-occupied = %name%
+label-occupied-padding = 2
+label-occupied-background = ${colors.background-alt}
+label-urgent = %name%!
+label-urgent-foreground = ${colors.alert}
+label-urgent-background = ${colors.background-alt}
+label-urgent-padding = 2
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.background-alt}
+label-empty-padding = 2
+label-monitor-padding = 2
+label-occupied-underline = #555555
+label-monocle = M
+label-monocle-padding = 2
+label-monocle-background = ${colors.primary-alt}
+label-monocle-foreground= ${colors.background-alt}
+label-tiled = T
+label-tiled-padding = 2
+label-tiled-background = ${colors.primary}
+label-tiled-foreground= ${colors.background-alt}
+pin-workspaces = true
+
+[module/datetime]
+type = internal/date
+interval = 1.0
+date = "%Y-%m-%d%"
+time = "%H:%M:%S"
+label = "%time%"
+label-background = ${colors.primary}
+label-foreground= ${colors.background-alt}
+label-padding = 2
+
+[module/battery-zero]
+type = internal/battery
+full-at = 99
+battery = BAT0
+label-full = Battery 0: %percentage%%
+label-full-background = ${colors.background-alt}
+label-full-foreground= ${colors.primary-alt}
+label-full-padding = 2
+label-discharging = Battery 0: %percentage%%
+label-discharging-background = ${colors.background-alt}
+label-discharging-foreground= ${colors.primary-alt}
+label-discharging-padding = 2
+
+[module/battery-one]
+type = internal/battery
+full-at = 99
+battery = BAT1
+label-full = Battery 1: %percentage%%
+label-full-background = ${colors.background-alt}
+label-full-foreground= ${colors.primary-alt}
+label-full-padding = 2
+label-discharging = Battery 1: %percentage%%
+label-discharging-background = ${colors.background-alt}
+label-discharging-foreground= ${colors.primary-alt}
+label-discharging-padding = 2
+
+[module/volume]
+type = internal/alsa
+label-volume = Audio: %percentage%%
+label-volume-padding = 2
+label-volume-foreground = ${colors.primary-alt}
+label-volume-background = ${colors.background-alt}
+label-muted = Audio: muted
+label-muted-padding = 2
+label-muted-background = ${colors.background-alt}
+label-muted-foreground = ${colors.alert}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+label = Backlight: %percentage%%
+label-padding = 2
+label-foreground = ${colors.primary-alt}
+label-background = ${colors.background-alt}
+
+[module/network-wlan]
+type = internal/network
+interface = wlp3s0
+label-connected = %ifname% %essid% %signal:3%%
+label-connected-padding = 2
+label-connected-foreground = ${colors.primary-alt}
+label-connected-background = ${colors.background-alt}
+label-disconnected = %ifname% disconnected
+label-disconnected-padding = 2
+label-disconnected-foreground = ${colors.alert}
+label-disconnected-background = ${colors.background-alt}
+
+[module/network-lan]
+type = internal/network
+interface = enp0s25
+label-connected = %ifname%
+label-connected-padding = 2
+label-connected-foreground = ${colors.primary-alt}
+label-connected-background = ${colors.background-alt}
+label-disconnected = %ifname% disconnected
+label-disconnected-padding = 2
+label-disconnected-foreground = ${colors.alert}
+label-disconnected-background = ${colors.background-alt}
