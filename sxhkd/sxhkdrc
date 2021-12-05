@@ -1,18 +1,11 @@
-# bspc
+# BSPC -----------------------------------------------
+# ----------------------------------------------------
+
 super + Escape
 	bspc quit
 
 super + Delete
 	bspc node --close
-
-super + {_,shift +}f
-	bspc node --focus {prev,next}
-
-super + {_,shift +}r
-    bspc node @/ --rotate {90,-90}
-
-super + {_,shift +}c
-    bspc node @/ --circulate {backward,forward}
 
 super + {_,shift +}{h,j,k,l}
     bspc node --{focus,swap} {west,south,north,east}
@@ -26,46 +19,61 @@ super + shift + m
 super + shift + t
 	bspc desktop --layout tiled
 
-# Launcher
-super + shift + d
-	rofi -show drun -terminal xterm
-
-super + shift + s
-	rofi -show ssh -terminal xterm
+#
+# Rofi -----------------------------------------------
+# ----------------------------------------------------
 
 super + shift + w
-	rofi -show window
+	bookmarks-prompt
 
-# XF86 Keys
+super + shift + p
+	password-prompt
+
+# XF86 Keys ------------------------------------------
+# ----------------------------------------------------
+
 XF86AudioMute
-  amixer -c 0 sset Master toggle
+  audio toggle
 
 XF86AudioLowerVolume
-  amixer -c 0 sset Master 1%-
+  audio down
 
 XF86AudioRaiseVolume
-  amixer -c 0 sset Master 1%+
+  audio up
 
 XF86AudioMicMute
-  amixer -c 0 sset Mic toggle
+  microphone-toggle 
 
 XF86MonBrightnessUp
-  xbacklight -inc 1%
+  brightness up
 
 XF86MonBrightnessDown
-  xbacklight -dec 1%
+  brightness down
 
-# XF86Display => F7
-# XF86WLAN => F8
-# XF86Tools => F9
-# XF86Search => F10
-# XF86LaunchA => F11
-# XF86Explorer => F1
+# TODO:
+# F7  : XF86Display
+# F8  : XF86WLAN
 
-# Applications
-super + w
-	tabbed -c surf -e
+XF86Tools
+	settings prompt
+
+# F10 : XF86Search
+
+XF86LaunchA
+	rofi -show run
+
+XF86Explorer
+	rofi -show window
+
+# Applications ---------------------------------------
+# ----------------------------------------------------
 
 super + t
-	st
+	xterm
+
+super + w
+	vimb
+
+super + e
+	xterm -e nvim
 

@@ -1,21 +1,21 @@
 ! nord colors
-#define C00             #3b3228
-#define C01             #cb6077
-#define C02             #beb55b
-#define C03             #f4bc87
-#define C04             #8ab3b5
-#define C05             #a89bb9
-#define C06             #7bbda4
-#define C07             #f5eeeb
+#define C00             #2e3440
+#define C01             #bf616a
+#define C02             #a3be8c
+#define C03             #ebcb8b
+#define C04             #5e81ac
+#define C05             #b48ead
+#define C06             #5e81ac
+#define C07             #d8dee9
 
-#define C08             #645240
-#define C09             #cb6077
-#define C10             #beb55b
-#define C11             #f4bc87
-#define C12             #8ab3b5
-#define C13             #a89bb9
-#define C14             #7bbda4
-#define C15             #d0c8c6
+#define C08             #3b4253
+#define C09             #bf616a
+#define C10             #a3be8c
+#define C11             #ebcb8b
+#define C12             #81a1c1
+#define C13             #b48ead
+#define C14             #81a1c1
+#define C15             #eceff4
 
 ! colors
 *.color0:               C00
@@ -62,7 +62,7 @@ URxvt.boldFont:			xft:Iosevka:style=Bold:size=9
 URxvt.italicFont:		xft:Iosevka:style=Italic:size=9
 URxvt.boldItalicFont:	xft:Iosevka:style=Bold Italic:size=9
 
-rofi.font:              "FiraCode Nerd Font Mono" 9
+rofi.font:              "Iosevka Nerd Font" 9
 rofi.color-normal:      C07, C00, C07, C06, C00
 rofi.color-window:      C07, C06, C07
 rofi.bw:                0
