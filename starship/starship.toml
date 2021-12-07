@@ -1,0 +1,28 @@
+# Use custom format
+format = """$username$hostname$directory$git_branch """
+
+[username]
+style_user = "bg:blue fg:white"
+style_root = "bg:red fg:black"
+format = "[ $user ]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+style = "bg:bright-blue fg:black bold"
+format =  "[ $hostname ]($style)"
+disabled = false 
+
+[directory]
+truncation_length = 5
+truncate_to_repo = true
+style = "bg:bright-black fg:bright-blue"
+read_only_style = "bg:bright-red fg:black bold"
+read_only = " RO "
+format = "[ $path ]($style)[$read_only]($read_only_style)"
+
+[git_branch]
+style = "bg:bright-black fg:white"
+format = "[ $branch ]($style)"
+
