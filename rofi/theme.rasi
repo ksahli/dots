@@ -1,0 +1,95 @@
+* {
+    red: #bf616a;
+    blue: #5e81ac;
+	dark: #2e3440;
+	xdark: #3b4253;
+    light: #d8dee9;
+	xlight: #eceff4;
+
+    normal-background: var(light);
+    normal-foreground: var(dark);
+
+    alternate-background: var(light);
+    alternate-foreground: var(dark);
+
+    selected-normal-background: var(xlight);
+    selected-normal-foreground: var(xdark);
+
+	window-background: var(light);
+	window-foreground: var(dark);
+
+	mainbox-background: var(light);
+	mainbox-foreground: var(dark);
+
+	prompt-background: var(blue);
+	prompt-foreground: var(light);
+
+	entry-background: var(dark);
+	entry-foreground: var(light);
+
+	textbox-background: var(dark);
+	textbox-foreground: var(light);
+
+	background-color: var(light);
+	text-color: var(dark);
+	spacing: 0;
+}
+
+window {
+	background-color: var(window-background);
+	text-color: var(window-foreground);
+	width: 500px;
+	font: "Iosevka 10";
+}
+
+mainbox {
+	background-color: var(mainbox-background);
+	text-color: var(mainbox-foreground);
+}
+
+element {
+	padding: 5px;
+}
+
+element normal {
+    background-color: var(normal-background);
+    text-color: var(normal-foreground);
+}
+
+element alternate {
+    background-color: var(alternate-background);
+    text-color: var(alternate-foreground);
+}
+
+element selected {
+    background-color: var(selected-normal-background);
+    text-color: var(selected-normal-foreground);
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+inputbar {
+    children: [prompt,entry];
+}
+
+prompt {
+	background-color: var(prompt-background);
+	text-color: var(prompt-foreground);
+	padding: 5px;
+}
+
+entry {
+	background-color: var(entry-background);
+	text-color: var(entry-foreground);
+    cursor: text;
+	padding: 5px;
+}
+
+textbox {
+	background-color: var(textbox-background);
+	text-color: var(textbox-foreground);
+	padding: 10px;
+}

@@ -1,0 +1,3 @@
+configuration {
+  theme:              "/home/ksahli/.config/rofi/theme.rasi"; 
+}
